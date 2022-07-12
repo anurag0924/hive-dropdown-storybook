@@ -1,0 +1,13 @@
+server/funcitons/node_modules/
+
+web/node_modules/
+
+app/node_modules/
+app/.expo/
+app/.expo-shared
+app/.vscode
+app/.env
+
+
+node_modules/
+.env
