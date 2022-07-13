@@ -17,7 +17,6 @@ const DropDownListContainer = styled.div`
 const DropDownList = styled.ul`
   padding: 0;
   margin: 0;
-  padding-left: 1em;
   background: ${Color.white};
   font-size: 1.3rem;
   overflow: auto;
@@ -28,7 +27,10 @@ const DropDownList = styled.ul`
 
 const ListItem = styled.li`
   list-style: none;
-  margin-bottom: 0.8em;
+  padding: 0.5em 1em;
+  &:hover {
+      background: ${Color.grey};
+  }
 `;
 
 export interface DropdownOptionsProps {
@@ -58,12 +60,12 @@ export const DropdownOptions = ({
 
     const dropdwondOptions = useMemo(() => {
         if (!isMultiSelect) {
-            return displayOptions.splice(0,20).map((option, idx) => (
-                <ListItem key={idx} onClick={() => onValueChange([option])}>{option}</ListItem>
+            return displayOptions.slice(0, 20).map((option, idx) => (
+                <ListItem style={{ backgroundColor: (selectedValue?.indexOf(option) ?? -1) >= 0 ? "lightblue" : 'none'}} key={idx} onClick={() => onValueChange([option])}>{option}</ListItem>
             ));
         } else {
-            return displayOptions.splice(0,20).map((option, idx) => (
-                <ListItem key={idx}>
+            return displayOptions.slice(0, 20).map((option, idx) => (
+                <ListItem key={idx} style={{ backgroundColor: (selectedValue?.indexOf(option) ?? -1) >= 0 ? "lightblue" : 'none'}}>
                     <input type={"checkbox"} id={option} name={option} checked={(selectedValue?.indexOf(option) ?? -1) >= 0} onChange={(e) => {
                         if (e.target.checked) {
                             onValueChange([...(selectedValue ?? []), option]);
@@ -87,6 +89,7 @@ export const DropdownOptions = ({
                 }
             }} />}
             <DropDownList>
+                {/* Display option to unselect/select all when custom search is not being passed. not allowing allselect in case of custom search since only partial options will be displayed */}
                 {!optionsSearchOnchange && isMultiSelect &&
                     <ListItem key={'multiselect'}>
                         <input type={"checkbox"} id={'multiselect'} name={'multiselect'} checked={selectedValue?.length === options.length} onChange={(e) => {

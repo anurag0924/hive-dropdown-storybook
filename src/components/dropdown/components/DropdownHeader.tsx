@@ -43,7 +43,8 @@ export const DropdownHeader = ({ selectedValue, isMultiselect, label, onClick, h
         onClick()}>
         <LegendStyled>{label}</LegendStyled>
         <DropdownValueContainer >
-            <div style={{ width: 'fit-content'}}>{selectedValue?.toString() ?? helperText}</div>
+            {/* Display helper text when no values selected */}
+            <div style={{ width: 'fit-content'}}>{(selectedValue?.length ?? -1) > 0 ? selectedValue?.toString() : helperText}</div>
             <img style={{width: '1em', height: '1em'}} sizes='small' src={isOpen? upArrow : downArrow}/>
         </DropdownValueContainer>
     </DropDownHeader>

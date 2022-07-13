@@ -15,10 +15,10 @@ const singleSelectOptions = ['15','20','25','22','27']
 export const singleSelect = Template.bind({});
 
 singleSelect.args = {
-  value: ['Dropdown 1'],
    label: 'age',
    isMultiSelect: false,
    options: singleSelectOptions,
+   helperText: 'Select all that apply'
 };
 
 export const multiSelectDropdown = Template.bind({});
@@ -27,6 +27,7 @@ multiSelectDropdown.args = {
     label: 'tag',
     isMultiSelect: true,
     options:multiSelectOptions.slice(0,10),
+    helperText: 'Select all that apply'
 }
 
 export const multiSelectDropdownWithSearch = Template.bind({});
@@ -35,11 +36,22 @@ multiSelectDropdownWithSearch.args = {
     label: 'tag',
     isMultiSelect: true,
     options:multiSelectOptions,
+    helperText: 'Select all that apply'
+}
+
+export const multiSelectWithPills = Template.bind({});
+multiSelectWithPills.args = {
+    value: ['test 1', 'test 2'],
+    label: 'tag',
+    isMultiSelect: true,
+    options:multiSelectOptions,
+    helperText: 'Select all that apply',
+    displayPills: true,
 }
 
 const DropdownWithSearchComponent = () => {
     const [options, setOptions] = useState(multiSelectOptions.slice(0,10))
-    return <Dropdown value={['test 1', 'test 2']} label= 'tag' isMultiSelect= {true} options={options} optionsSearchOnchange={(search: string) => setOptions([...multiSelectOptions.slice(10, 25  )])}/>
+    return <Dropdown value={['test 1', 'test 2']} label= 'tag' helperText= 'Select all that apply' isMultiSelect= {true} options={options} optionsSearchOnchange={(search: string) => setOptions([...multiSelectOptions.slice(10, 25  )])}/>
 }
 
 const SearchTemplate: Story = (args) => <DropdownWithSearchComponent {...args} />;
