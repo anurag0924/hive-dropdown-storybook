@@ -20,7 +20,9 @@ padding-top: 1em;
 
 
 export interface DropdownProps {
+    // Used to display the legend text for dropdown
     label: string;
+    
     helperText?: string;
     value?: string[];
     isMultiSelect: boolean;

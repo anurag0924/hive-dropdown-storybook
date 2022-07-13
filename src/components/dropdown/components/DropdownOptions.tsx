@@ -58,11 +58,11 @@ export const DropdownOptions = ({
 
     const dropdwondOptions = useMemo(() => {
         if (!isMultiSelect) {
-            return displayOptions.map((option, idx) => (
+            return displayOptions.splice(0,20).map((option, idx) => (
                 <ListItem key={idx} onClick={() => onValueChange([option])}>{option}</ListItem>
             ));
         } else {
-            return displayOptions.map((option, idx) => (
+            return displayOptions.splice(0,20).map((option, idx) => (
                 <ListItem key={idx}>
                     <input type={"checkbox"} id={option} name={option} checked={(selectedValue?.indexOf(option) ?? -1) >= 0} onChange={(e) => {
                         if (e.target.checked) {
