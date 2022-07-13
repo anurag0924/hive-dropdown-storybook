@@ -36,15 +36,16 @@ export interface DropdownHeaderpProps {
     selectedValue?: string[];
     onClick: () => void;
     isOpen: boolean;
+    displayPills?: boolean;
 }
-export const DropdownHeader = ({ selectedValue, isMultiselect, label, onClick, helperText = '', isOpen = false  }: DropdownHeaderpProps) => {
+export const DropdownHeader = ({ selectedValue, isMultiselect, label, onClick, helperText = '', isOpen = false, displayPills= false  }: DropdownHeaderpProps) => {
 
     return <DropDownHeader onClick={() =>
         onClick()}>
         <LegendStyled>{label}</LegendStyled>
         <DropdownValueContainer >
             {/* Display helper text when no values selected */}
-            <div style={{ width: 'fit-content'}}>{(selectedValue?.length ?? -1) > 0 ? selectedValue?.toString() : helperText}</div>
+            <div style={{ width: 'fit-content'}}>{(selectedValue?.length ?? 0) === 0 || displayPills ? helperText : selectedValue?.toString()}</div>
             <img style={{width: '1em', height: '1em'}} sizes='small' src={isOpen? upArrow : downArrow}/>
         </DropdownValueContainer>
     </DropDownHeader>

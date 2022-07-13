@@ -9,9 +9,9 @@
 I am using storybook to render the component. Different stories different experiences for the drop down.
 
 ### Handling Large Lists
- For handling large lists of data in drop down, the bestway is to render only the list items that are in view or have infinite scroll to fetch more data. for both of this there libraries avaialbe like react-window and react infinite scroll.
+ For handling large lists of data in drop down, the bestway is to render only the list items that are in view or have infinite scroll to fetch more data. for both of this there libraries avaialbe like react-window and react infinite scroll. For now I went through a simple approach of rendering the whole component only when its in view port or else it will just render ```loading``` .
  
- For this excercise though I went with 2 approaches and consumer of the component can decide which one suits there use case better.
+ For this excercise  I went with 2 extra approaches and consumer of the component can decide which one suits there use case better.
  1. display only 20 options in the drop down and give the user a capability of search to filter through the entire options
  2. other method on user search ```optionsSearchOnchange``` callback can be used update the options list based on search.
 

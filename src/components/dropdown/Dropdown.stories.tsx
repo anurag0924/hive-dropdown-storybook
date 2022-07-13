@@ -27,7 +27,17 @@ multiSelectDropdown.args = {
     label: 'tag',
     isMultiSelect: true,
     options:multiSelectOptions.slice(0,10),
-    helperText: 'Select all that apply'
+    helperText: 'Select all that apply',
+}
+
+export const multiSelectDropdownWithDisplayAll = Template.bind({});
+multiSelectDropdownWithDisplayAll.args = {
+    value: ['test 1', 'test 2'],
+    label: 'tag',
+    isMultiSelect: true,
+    options:multiSelectOptions,
+    helperText: 'Select all that apply',
+    displayAllOptions: true
 }
 
 export const multiSelectDropdownWithSearch = Template.bind({});
