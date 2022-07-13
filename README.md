@@ -1,9 +1,15 @@
 # hive-dropdown-storybook
 
-### Steps to run
+I would recommend testing in story book as we test different props easity. rather than in webapp where we need to update the code to inlcude larger datasets.
+### Steps to run Storybook
 1. clone the repo
 2. run ```npm install```
 3. run ```npm run storybook``` run the project in storybook
+
+### Steps to run webapp
+1. clone the repo
+2. run ```npm install```
+3. run ```npm start``` run the project in storybook
 
 ### Storybook
 I am using storybook to render the component. Different stories different experiences for the drop down.

@@ -70,7 +70,7 @@ export const Dropdown = ({ value, label, isMultiSelect = false, options, helperT
                 {/* pills to display selected values */}
                 {isMultiSelect && displayPills && <SelectedDsiplay>{pills()}</SelectedDsiplay>}
                 <DropdownHeader displayPills={displayPills} isOpen={isOpen} isMultiselect={isMultiSelect} label={label} selectedValue={selectedValue} onClick={() => toggleDropdown()} helperText={helperText} />
-                {isOpen && (displayAllOptions ? <DropdownOptions options={options} isMultiSelect={isMultiSelect} selectedValue={selectedValue} onValueChange={handleSelect} optionsSearchOnchange={optionsSearchOnchange} /> :
+                {isOpen && (!displayAllOptions ? <DropdownOptions options={options} isMultiSelect={isMultiSelect} selectedValue={selectedValue} onValueChange={handleSelect} optionsSearchOnchange={optionsSearchOnchange} /> :
                     <DropdownAllOptions options={options} isMultiSelect={isMultiSelect} selectedValue={selectedValue} onValueChange={handleSelect} />)}
             </DropDownContainer>
         </>
