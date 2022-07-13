@@ -90,15 +90,14 @@ export const DropdownAllOptions = ({
         setDisplayOptions(options)
     }, [options])
 
-    /** Subload hook, which checks if the item is in viewPort */
-    interface SubloadProps {
+    interface ItemProps {
         containerSelector: string,
         item: string,
         idx: number,
     }
 
     /**  component, which render single select item if it is in viewPort */
-    const SingleSelectItem = ({ containerSelector, item, idx }: SubloadProps) => {
+    const SingleSelectItem = ({ containerSelector, item, idx }: ItemProps) => {
         const [loaded, elRef] = useIsInViewPort(containerSelector, true);
         return (
             <div className={'sub-load'} ref={elRef} >
@@ -107,7 +106,7 @@ export const DropdownAllOptions = ({
         );
     };
     /**  component, which render mutli select item if it is in viewPort */
-    const MultiSelectItem = ({ containerSelector, item, idx }: SubloadProps) => {
+    const MultiSelectItem = ({ containerSelector, item, idx }: ItemProps) => {
         const [loaded, elRef] = useIsInViewPort(containerSelector, true);
         return (
             <div className={'sub-load'} ref={elRef} >
