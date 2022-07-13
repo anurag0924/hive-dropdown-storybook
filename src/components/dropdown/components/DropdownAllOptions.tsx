@@ -34,7 +34,8 @@ const ListItem = styled.li`
 `;
 
 
-/** Custom hook to check if the component is in view port or not */
+/** Custom hook to check if the component is in view port or not. If the comonent is in view port we
+ *  loading to true to render the item else we display loading message. Display laoding message instead of component or else the scroll will be disabled. */
 const useIsInViewPort = (containerSelector: string, handleLoading = false): [boolean, React.RefObject<HTMLDivElement>] => {
 
     const [loaded, setLoaded] = useState(false);
@@ -60,7 +61,6 @@ const useIsInViewPort = (containerSelector: string, handleLoading = false): [boo
             {
 
                 root: document.querySelector(containerSelector),
-                // rootMargin: "0px 0px 100px 0px"
             },
         );
         if (elRef?.current)
